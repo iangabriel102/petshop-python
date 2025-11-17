@@ -1,0 +1,56 @@
+# Entrada de dados
+porte = input("Qual é o porte do cachorro (pequeno, medio ou grande)? ").lower()
+idade = int(input("Qual a idade do cachorro? "))
+nome = input("Qual o nome do cachorro? ")
+banhoTosa = input("Deseja banho e tosa? (SIM/NÃO) ").lower()
+exames = input("Deseja realizar exames laboratoriais? (SIM/NÃO) ").lower()
+consulta = input(f"Deseja passar {nome} na consulta veterinária? (SIM/NÃO) ").lower()
+spa = input("Deseja utilizar o spa? (SIM/NÃO) ").lower()
+
+# Preços padrão
+precoBanhoTosa = 0
+precoExames = 0
+precoConsulta = 0
+precoSpa = 0
+
+# Lógica de acordo com o porte
+if porte == "pequeno":
+    precoBanhoTosa = 100
+    precoExames = 175
+    precoConsulta = 150
+    precoSpa = 140
+    print("\n--- Preços para porte pequeno ---")
+    
+elif porte == "medio" or porte == "médio":
+    precoBanhoTosa = 125
+    precoExames = 200
+    precoConsulta = 175
+    precoSpa = 165
+    print("\n--- Preços para porte médio ---")
+
+elif porte == "grande":
+    precoBanhoTosa = 150
+    precoExames = 225
+    precoConsulta = 200
+    precoSpa = 190
+    print("\n--- Preços para porte grande ---")
+
+else:
+    print("Porte inválido. Use pequeno, medio ou grande.")
+    exit()
+
+# Mostrar preços
+print(f"Banho e tosa: R$ {precoBanhoTosa}")
+print(f"Exames laboratoriais: R$ {precoExames}")
+print(f"Consulta veterinária: R$ {precoConsulta}")
+print(f"Spa: R$ {precoSpa}")
+
+# Cálculo de total
+precoTotal = precoBanhoTosa + precoExames + precoConsulta + precoSpa
+
+# Desconto para idosos
+if idade >= 10:
+    precoTotal = precoTotal - (precoTotal * 0.10)
+    print("\nCACHORRO COM 10 ANOS OU MAIS TEM 10% DE DESCONTO!")
+
+print(f"\nValor total dos serviços: R$ {precoTotal}")
